@@ -1,0 +1,920 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+
+
+
+
+
+        <script src="//a.fsdn.com/con/js/min/sf.sandiego-cmp-top.js?1748972747"></script>
+
+
+
+
+
+
+
+
+        <script>
+            /*global unescape, window, SF*/
+            // Setup our namespace
+            if (!window.SF) { window.SF = {}; }
+            if (!window.net) { window.net = {}; }
+            if (!window.net.sf) { window.net.sf = {}; }
+            SF.Ads = {};
+            SF.cdn = '//a.fsdn.com/con';
+            SF.alluracdn = '//a.fsdn.com/allura/cdn/allura/nf';
+            SF.deploy_time = '1748972747';
+            SF.sandiego = true;
+            SF.sandiego_chrome = true;
+            SF.variant = 'sf';
+            SF.fpid = '9329819e-13c2-4318-bb98-0174e293068d';
+            SF.billboard_route = '/software/product/$slug/';
+
+            SF.Breakpoints = {
+              small: 0,
+              medium: 640,
+              leaderboard: 743,
+              billboard: 985,
+              large: 1053,
+              xlarge: 1295,
+              xxlarge: 1366
+            };
+            SF.initial_breakpoints_visible = {};
+            for (var bp in SF.Breakpoints) {
+                if (!SF.Breakpoints.hasOwnProperty(bp)) {
+                    continue;
+                }
+                SF.initial_breakpoints_visible[bp] = !window.matchMedia || window.matchMedia('(min-width: ' + SF.Breakpoints[bp] + 'px)').matches;
+            }
+
+        </script>
+
+
+        <script>
+            window.ID5EspConfig = {partnerId: 1787};
+        </script>
+
+
+
+<script>
+    bizx.uids.gatherAndClean();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="//a.fsdn.com/con/css/lato.css?1748972747">
+
+
+
+
+        <link rel="stylesheet" href="//a.fsdn.com/con/css/sandiego.css?1748972747">
+
+        <link rel="stylesheet" href="//a.fsdn.com/con/css/disallow.css?1748972747">
+
+
+
+                <meta name="description" content="Free, secure and fast downloads from the largest Open Source applications and software directory - SourceForge.net">
+                <meta name="keywords" content="Open Source, Open Source Software, Development, Community, Source Code, Secure,  Downloads, Free Software">
+        <title>Page not found
+    - SourceForge.net</title>
+        <link rel="icon" sizes="180x180" href="//a.fsdn.com/con/img/sandiego/logo-180x180.png" type="image/png">
+<link rel="icon" sizes="any" href="//a.fsdn.com/con/img/sandiego/svg/originals/sf-icon-orange-no_sf.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" sizes="180x180" href="//a.fsdn.com/con/img/sandiego/logo-180x180.png">
+<link rel="mask-icon" href="//a.fsdn.com/con/img/sandiego/svg/originals/sf-icon-orange-no_sf.svg" color="#FF6600">
+
+        <script>
+            /*global unescape, window, console, jQuery, $, net, SF, bizx  */
+            if (!window.SF) {
+                window.SF = {};
+            }SF.EU_country_codes = ["CW","IS","NC","FR","PL","SH","IO","GG","ES","GL","IT","CY","GS","EE","BM","HR","LU","FI","RE","BE","TC","MS","LI","SE","LV","SX","AI","MQ","IE","AW","PF","GF","AX","HU","TF","GR","NO","ME","CZ","YT","DK","KY","CH","VG","BG","NL","MT","MF","LT","WF","PN","GI","AT","PT","DE","SI","GP","JE","GB","RO","SK","PM","FK","BL"];
+            SF.unknown_country_codes = ["","A1","A2","O1"];
+        </script>
+
+
+
+        <script src="//a.fsdn.com/con/js/min/sf.sandiego-head.js?1748972747"></script>
+
+
+
+
+
+        <style>.Y049bf7c2a10aba75b7c7f92c48c905109a03e0ea { display: none !important; }</style>
+
+
+<script>SF.adblock = true;</script>
+<script src="//a.fsdn.com/con/js/adpopup.js?1748972747"></script>
+
+
+
+
+
+
+
+
+    <script>
+        function initPiwik(){
+            var _paq = window._paq = window._paq || [];
+            _paq.push(['trackPageView', document.title, {
+                dimension2: 'error-content',
+                dimension3: SF.devicePixelRatio,
+
+            }]);
+            _paq.push(['enableLinkTracking']);
+
+            (function() {
+                var u="//analytics.slashdotmedia.com/";
+                _paq.push(['setTrackerUrl', u+'sf.php']);
+                _paq.push(['setSiteId', 39]);
+
+                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'sf.js'; s.parentNode.insertBefore(g,s);
+            })();
+        }
+        bizx.cmp.ifConsent({ purposes: ['storage', 'measurement'], vendors: 'sdm' }, initPiwik);
+    </script>
+
+
+
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "WebSite",
+                "name": "SourceForge",
+                "url": "https://sourceforge.net/"
+            }
+        </script>
+    </head>
+    <body id="error-content"
+          class="  anonymous has-ads sandiego v-sf">
+
+
+
+        <div id="busy-spinner"></div>
+
+
+<div id="messages">
+    <section class="message error notify-sticky  ">
+        <div class="content">The "/FreeBASIC-1.10.0/Fr..-linux-x86_64.tar.gz" file could not be found or is not available.  Please select another file.</div>
+    </section>
+</div>
+
+
+        <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+    <!-- Menu -->
+    <ul class="header-nav-menulist">
+        <li class="highlight search">
+
+
+
+
+
+    <form method="get" action="/directory/" class="m-search-form">
+
+        <input type="text" placeholder="Search for software or solutions" autocomplete="off" name="q" >
+
+        <label >
+            <input type="submit" class="bt" value="">
+
+
+
+<svg  data-name="search" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1216 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"/></svg>
+        </label>
+    </form>
+        </li>
+
+        <li class="highlight"><a href="https://sourceforge.net/auth/">Join/Login</a></li>
+
+        <li><a href="/software/">Business Software</a></li>
+        <li><a href="/directory/">Open Source Software</a></li>
+        <li><a  href="/software/vendors/" title="For Vendors">For Vendors</a></li>
+        <li><a href="/blog/" title="Blog">Blog</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a id="header-nav-more" data-toggle="header-nav-more header-nav-more-content" data-toggler=".toggled">More</a></li>
+        <li>
+            <ul id="header-nav-more-content" class="toggled" data-toggler=".toggled">
+
+
+
+
+
+        <li><a href="/articles/">Articles</a></li>
+
+
+
+
+
+
+                <li><a href="/create">Create</a></li>
+
+                <li><a href="https://sourceforge.net/articles/category/sourceforge-podcast/">SourceForge Podcast</a></li>
+
+                    <li><a href="https://sourceforge.net/p/forge/documentation/Docs%20Home/">Site Documentation</a></li>
+
+                <li><a href="/user/newsletters">Subscribe to our Newsletter</a></li>
+                <li><a href="/support">Support Request</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+        <div class="off-canvas-content" data-off-canvas-content>
+
+
+
+
+<script>
+    SF.linkout_icon = '<svg  data-name="sf-linkout-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve"><polygon class="st0" points="243.2,243.2 56.8,243.2 56.8,56.8 123,56.8 123,9 9,9 9,291 291,291 291,179.4 243.2,179 "/><polygon class="st0" points="128.5,213 155,186.5 176,165.5 206.7,196.3 235.5,132.5 248.9,102.6 290.6,9.8 291,9 290.6,9.2 197.4,51.1 169.1,63.8 103.7,93.3 137,126.5 115.9,147.5 89.5,174 "/></svg>';
+</script>
+
+
+<div class="l-header-nav sticky sandiego">
+
+    <section class="sandiego l-header-nav-top show-for-large">
+        <div class="row">
+            <a href="/" title="Home" class="sf-logo">
+
+
+    <img src="//a.fsdn.com/con/images/sandiego/sf-logo-full.svg"  alt="SourceForge logo" class="sf-logo-full"/>
+            </a>
+            <nav class="links">
+
+                    <a href="/user/newsletters" title="Subscribe to our newsletter"><span class="newsletter-icon">
+
+
+<svg  data-name="mmSF_11mail" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 42 42" enable-background="new 0 0 42 42" xml:space="preserve"><path fill="#FFFFFF" d="M0,6v30h42V6H0z M24.2,21.2c-0.8,0.8-2.3,2-3.2,2c-0.9,0-2.4-1.2-3.2-2L5.8,9.7h30.3L24.2,21.2z M13.7,21l-9.9,9.4V11.6L13.7,21z M15.7,23L15.7,23c0.5,0.5,2.9,2.9,5.3,2.9c2.4,0,4.8-2.4,5.2-2.8l0.1-0.1l9.8,9.4H5.8L15.7,23z M28.3,21l9.9-9.5v18.9L28.3,21z"/></svg></span></a>
+
+                <a href="/software/vendors/" title="For Vendors">For Vendors</a>
+
+
+                    <a href="/support" title="Help">Help</a>
+                    <a href="/create/" title="Create">Create</a>
+
+
+
+                <a href="/user/registration" title="Join" >Join</a>
+                <a href="https://sourceforge.net/auth/" title="Login">Login</a>
+
+            </nav>
+        </div>
+    </section>
+
+    <section class="sandiego l-header-nav-top hide-for-large">
+        <div class="row">
+            <a href="/" title="Home" class="sf-logo">
+
+
+    <img src="//a.fsdn.com/con/images/sandiego/sf-logo-full.svg"  alt="SourceForge logo" class="sf-logo-full"/>
+            </a>
+            <div class="title-bar-right">
+                <button type="button" aria-label="Toggle Main Menu" class="menu-icon" data-toggle="offCanvas"></button>
+            </div>
+        </div>
+    </section>
+    <section class="sandiego l-header-nav-bottom">
+        <nav class="row">
+            <a href="/" title="Home" class="sf-logo">
+
+
+    <img src="//a.fsdn.com/con/images/sandiego/sf-logo-full.svg"  alt="SourceForge logo" class="sf-logo-full"/>
+            </a>
+            <div class="links">
+
+
+        <div class="nav-dropdown">
+            <a href="/software/">Business Software</a>
+
+        </div>
+        <div class="nav-dropdown">
+            <a href="/directory/" title="Browse">Open Source Software</a>
+
+        </div>
+        <div class="nav-dropdown">
+            <a href="https://sourceforge.net/articles/category/sourceforge-podcast/">SourceForge Podcast</a>
+        </div>
+        <div class="nav-dropdown">
+            <a>Resources</a>
+            <ul class="nav-dropdown-menu">
+                  <li><a href="/articles/">Articles</a></li>
+
+                  <li><a href="/software/case-studies/">Case Studies</a></li>
+
+                  <li><a href="/blog/">Blog</a></li>
+            </ul>
+        </div>
+
+
+                <div class="dev-menu-when-stuck">
+                    Menu
+                    <ul class="dev-menu-dropdown header-nav-menulist">
+                        <li><a href="/support">Help</a></li>
+                        <li><a href="/create">Create</a></li>
+                        <li><a href="/user/registration/" title="Join" >Join</a></li>
+                        <li><a href="https://sourceforge.net/auth/" title="Login">Login</a></li>
+                    </ul>
+                </div>
+                <div class="search-toggle-when-stuck">
+                    <a class="search-toggle">
+
+
+
+<svg  data-name="search" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1216 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="search">
+
+
+
+
+        <div class="main-nav-link">
+
+
+            <a href="https://www.avast.com/lp-free-av?full_trSrc=mmm_srf_dlp_008_406_a&amp;utm_medium=referral&amp;utm_source=sourceforge&amp;utm_campaign=srf_dlp_008_406_a:site_banner" rel="nofollow" target="_blank" id="main-nav-badge-link" data-label="avastjune">
+                <img src="//a.fsdn.com/con/assets/maxnav/sourceforge/nav32-347199d0.png"  srcset="//a.fsdn.com/con/assets/maxnav/sourceforge/nav64-34727d78.png 2x"  alt="" id="main-nav-image"/>
+            </a>
+        </div>
+
+
+
+
+
+
+
+
+
+    <form method="get" action="/directory/" class="m-search-form">
+
+    <div class="typeahead__container">
+      <div class="typeahead__field">
+        <div class="typeahead__query">
+
+        <input type="text" placeholder="Search for software or solutions" autocomplete="off" name="q" >
+
+        </div>
+
+        <label >
+            <input type="submit" class="bt" value="">
+
+
+
+<svg  data-name="search" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1216 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"/></svg>
+        </label>
+      </div>
+    </div>
+
+    </form>
+
+            </div>
+        </nav>
+
+    </section>
+
+</div>
+
+
+
+
+<div class="error-body">
+    <div id="message-image-404" class="message-image">
+
+<svg  data-name="MissingPage_Error" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 240.2 240.1" style="enable-background:new 0 0 240.2 240.1;" xml:space="preserve"><circle class="st0" cx="120.1" cy="120" r="120"/><text transform="matrix(1 0 0 1 79.9553 201.9287)" class="st1 st2">?</text></svg>
+    </div>
+
+    <h1>
+
+        Whoops, we can't find that page.
+
+    </h1>
+
+
+
+    <div class="nav-block">
+        <a href="/directory/">Browse Open Source Software</a> or <a href="/software/">Browse Business Software and Services</a>
+    </div>
+
+</div>
+
+
+
+
+    <footer class="sandiego">
+    <div class="as-row">
+        <div class="footer-wrapper">
+            <nav aria-label="Site Links" role="navigation">
+                <section>
+                    <div class="as-h2">SourceForge</div>
+                    <ul>
+
+                        <li><a href="/create/" title="Create a Project">Create a Project</a></li>
+
+                        <li><a href="/directory/" title="Open Source Software Directory">Open Source Software</a></li>
+                        <li><a href="/software/" title="Business Software Directory">Business Software</a></li>
+
+
+                            <li><a href="/top" title="Top Open Source Projects">Top Downloaded Projects</a></li>
+
+
+                    </ul>
+                </section>
+            </nav>
+            <nav aria-label="Company Links" role="navigation">
+                <section>
+                    <div class="as-h2">Company</div>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/about/leadership" title="Open Source Software Directory">Team</a></li>
+                        <li class="h-card">
+                            <address>
+                                <span class="p-name p-org">SourceForge Headquarters</span><br>
+                                <span class="p-street-address">225 Broadway Suite 1600</span><br>
+                                <span class="p-locality">San Diego, CA <span class="p-postal-code">92101</span></span><br>
+                                <span class="p-tel">+1 (858) 422-6466</span><br>
+                            </address>
+                        </li>
+                        <li id="social">
+
+<span></span>
+<a href="https://twitter.com/sourceforge" class="twitter" rel="nofollow" target="_blank" title="SourceForge on X">
+
+
+<svg  class="vertical-icon-fix" data-name="twitter" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></a>
+<a href="https://fosstodon.org/@sourceforge" rel="me nofollow" target="_blank" title="SourceForge on Mastodon">
+
+
+<svg  class="vertical-icon-fix" data-name="mastodon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg></a>
+<a href="https://www.facebook.com/sourceforgenet/" class="facebook" rel="nofollow" target="_blank" title="SourceForge on Facebook">
+
+
+<svg  data-name="facebook" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></a>
+<a href="https://www.linkedin.com/company/sourceforge.net" class="linkedin" rel="nofollow" target="_blank" title="SourceForge on LinkedIn">
+
+
+<svg  data-name="linkedin" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></a>
+
+<a href="/user/newsletters" rel=nofollow class="newsletter" title="Subscribe to our newsletter">
+
+
+<svg  class="vertical-icon-fix" data-name="mmSF_11mail" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 42 42" enable-background="new 0 0 42 42" xml:space="preserve"><path fill="#FFFFFF" d="M0,6v30h42V6H0z M24.2,21.2c-0.8,0.8-2.3,2-3.2,2c-0.9,0-2.4-1.2-3.2-2L5.8,9.7h30.3L24.2,21.2z M13.7,21l-9.9,9.4V11.6L13.7,21z M15.7,23L15.7,23c0.5,0.5,2.9,2.9,5.3,2.9c2.4,0,4.8-2.4,5.2-2.8l0.1-0.1l9.8,9.4H5.8L15.7,23z M28.3,21l9.9-9.5v18.9L28.3,21z"/></svg></a>
+
+<span></span>
+                        </li>
+                    </ul>
+                </section>
+            </nav>
+             <nav aria-label="Resources Links" role="navigation">
+                <section>
+                    <div class="as-h2">Resources</div>
+                    <ul>
+
+                            <li><a href="/support" title="Support Section">Support</a></li>
+                            <li><a href="/p/forge/documentation/Docs%20Home/" title="Site Documentation">Site Documentation</a></li>
+
+                        <li><a href="https://fosstodon.org/@sourceforgestatus" title="Site Status" rel="me nofollow">Site Status</a></li>
+                        <li><a href="/reviews" title="Reviews" rel="me nofollow">SourceForge Reviews</a></li>
+
+                    </ul>
+                </section>
+            </nav>
+            <section class="footer-logo">
+                <a href="/" title="Home" class="sf-logo">
+
+
+    <img src="//a.fsdn.com/con/images/sandiego/sf-logo-full.svg"  alt="SourceForge logo" class="sf-logo-full"/>
+                </a>
+            </section>
+        </div>
+    </div>
+    <section class="l-nav-bottom">
+        <nav class="row">
+
+
+
+
+    <div class="columns small-12 large-6 copyright-notice">
+        &copy; 2025 Slashdot Media. All Rights Reserved.
+    </div>
+    <div class="columns large-6 links links-right">
+
+
+
+
+
+    <a href="https://slashdotmedia.com/terms-of-use" target="_blank" title="Terms" rel="nofollow">Terms</a>
+    <a href="https://slashdotmedia.com/privacy-statement/" target="_blank" title="Privacy" rel="nofollow">Privacy</a>
+
+
+
+
+
+
+        <a href="https://slashdotmedia.com/opt-out-choices/" target="_blank" title="Opt Out" rel="nofollow">Opt Out</a>
+
+
+
+        <a href="https://slashdotmedia.com/contact/" target="_blank" title="Advertise" rel="nofollow">Advertise</a>
+
+    </div>
+        </nav>
+    </section>
+
+    </footer>
+
+
+
+
+
+
+        </div>
+
+
+    <div id="newsletter-floating" class="sandiego newsletter-floating-new">
+        <a class="close-button btn-closer" data-close aria-label="Close modal">
+            <span aria-hidden="true">&times;</span>
+        </a>
+        <div class="as-h2">Want the latest updates on software, tech news, and AI?</div>
+        <div class="row">
+            <div class="column small-2 medium-2 large-2" style="padding-left: 0px; padding-right: 0px;"><img src="//a.fsdn.com/con/images/sandiego/sf_email_icon.svg"  alt="" /></div>
+            <div class="as-h3 column small-10 medium-10 large-10">Get latest updates about software, tech news, and AI from SourceForge directly in your inbox once a month.</div>
+        </div>
+        <form action="/user/newsletters/" method="post">
+            <div class="row">
+              <input class="newsletter-input" type="email" placeholder="Enter your email address" autocomplete="off" name="newsletter_email"
+                     value="">
+              <input type="hidden" name="source" value="floating">
+              <button type="submit" class="button blue newsletter-button">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+        <script src="//a.fsdn.com/con/js/min/sf.sandiego-base.js?1748972747"></script>
+
+
+
+
+    <script>
+        /* global Dropzone */
+        Dropzone.options.blockthisForm = false;
+    </script>
+
+
+        <script src="//a.fsdn.com/con/js/min/sf.sandiego-foundation-base.js?1748972747"></script>
+
+
+
+
+
+
+
+        <script>
+            /* global Foundation */
+            $(document).foundation();
+            Foundation.Triggers.forceListenersNow();
+        </script>
+
+
+
+        <script>
+            bizx.cmp.ifConsent({purposes:'all', vendors:'google-ads'}, function () {
+                $('body').removeClass('no-ads-consent');
+            },
+            function () {
+                $('body').addClass('no-ads-consent');
+            },
+            null,
+            function () {
+                $('body').addClass('no-ads-consent');
+            });
+        </script>
+
+        <noscript><p><img src="https://analytics.slashdotmedia.com/index.php?idsite=39" style="border:0;" alt="" /></p></noscript>
+
+
+
+
+
+
+        <script>
+
+        function geturl(url, params) {
+            params = Object
+                .keys(params)
+                .map(function(key) {
+                    return key + "=" + encodeURIComponent(params[key]);
+                })
+                .join("&");
+            return url + "?" + params;
+        }
+
+
+        function loadimg(params, dimension_prefix) {
+            params = Object.assign({"idsite":1,"rec":1,"rand":80826,"dimension2":"error-content","url":"https://sourceforge.net/projects/fbc/files/FreeBASIC-1.10.0/FreeBASIC-1.10.0-linux-x86_64.tar.gz/download","action_name":"Page not found\n    - SourceForge.net"}, params);
+            for (var key in params) {
+                if (params.hasOwnProperty(key) && key.indexOf('dimension') === 0 && params[key] !== undefined) {
+                    params[key] = (dimension_prefix||'') + params[key];
+                }
+            }
+            params.rand = Math.floor(Math.random() * 100000);
+            bizx.cmp.ifConsent('publisher', ['measurement'], function() {
+                var url = geturl("//sourceforge.net/software/visit", params);
+                if (!('sendBeacon' in navigator) || !navigator.sendBeacon(url)) {
+                    var img = document.createElement('img');
+                    img.src = url;
+                    img.style = "border:0;position:absolute;top:0;";
+                    img.alt = "";
+                    document.body.appendChild(img);
+                }
+            });
+        }
+
+        var $typeaheads = $('.typeahead__container input[name=q]');
+        $typeaheads.on('typeahead-item-clicked', function(ev, $typeahead, q, item){
+            var groupIndex = ($typeahead.data('groups') || []).indexOf(item.group);
+            if (groupIndex === 2 || groupIndex === 3) {
+                loadimg({
+                    'e_c': 'Search | Typeahead | ' + item.group,
+                    'e_a': "Typeahead Click | q=" + q,
+                    'e_n': item.href,
+                 }, 'typeahead_on_');
+            }
+        });
+        </script>
+
+        <script type="text/javascript">
+            bizx.cmp.ifConsent({purposes: 'all', vendors: '6sense'}, async() => {
+
+                (function(){var s = document.getElementsByTagName("script")[0];
+                var b = document.createElement("script");
+                b.type = "text/javascript";b.async = true;b.defer=true;b.id='6senseWebTag';
+                b.src = "https://j.6sc.co/j/58729049-be80-466a-9abf-b3911430bbd8.js";
+                s.parentNode.insertBefore(b, s);})();
+            });
+            </script>
+
+
+
+
+<!-- CCM Tag -->
+<script>
+    (function () {
+        bizx.cmp.ifConsent({ purposes: 'all', vendors: 'bombora'}, function () {
+            /*global _ml:true, window */
+            _ml = window._ml || {};
+
+            _ml.eid = '771';
+            _ml.fp = '9329819e-13c2-4318-bb98-0174e293068d';
+            var s = document.getElementsByTagName('script')[0], cd = new Date(), mltag = document.createElement('script');
+            mltag.type = 'text/javascript';
+            mltag.async = true;
+            mltag.defer = true;
+            mltag.src = '//ml314.com/tag.aspx?' + cd.getDate() + cd.getMonth() + cd.getFullYear();
+            s.parentNode.insertBefore(mltag, s);
+        });
+    })();
+</script>
+<!-- End CCM Tag -->
+
+
+
+
+<!-- Hubspot tracking -->
+
+
+
+
+
+
+
+
+    <div id="overlay-blockthis-wrapper" style="display: none;">
+        <div id="overlay-blockthis">
+            <div class="as-h2 title">Thanks for helping keep SourceForge clean.</div>
+            <a href="#" id="btn-blockthis-close">X</a>
+            <form class="dropzone small-12" action="/api/instrumentation/gpt" id="blockthisForm" method="POST">
+                <div class="row small-12">
+                    <div class="column description small-12">
+                        <input type="hidden" name="_visit_cookie" value="9329819e-13c2-4318-bb98-0174e293068d"/>
+                            <input type='hidden' name='timestamp' value='1749325798'/>
+                            <input type='hidden' name='spinner' value='Xt4QK63l4JPJusjjt9_YT5N9M5T8'/>
+                            <p class='Y049bf7c2a10aba75b7c7f92c48c905109a03e0ea'><label for='XwrDDrGXChRwBFMOCw7c_bEokAmXDp8K4wosUJg'>You seem to have CSS turned off.
+             Please don't fill out this field.</label><input id='XwrDDrGXChRwBFMOCw7c_bEokAmXDp8K4wosUJg' name='XwrHDrGXChRwBFGvDo8Omwp8:A8KAEMKDGMK9w7zDlw' type=
+             'text'/></p>
+                            <p class='Y049bf7c2a10aba75b7c7f92c48c905109a03e0ea'><label for='XwrDDrGXChRwBFMODw7c_bEokAmXDp8K4wosUJg'>You seem to have CSS turned off.
+             Please don't fill out this field.</label><input id='XwrDDrGXChRwBFMODw7c_bEokAmXDp8K4wosUJg' name='XwrHDrGXChRwBFWvDo8Omwp8:A8KAEMKDGMK9w7zDlw' type=
+             'text'/></p>
+                        Briefly describe the problem (required):
+                        <input name="XwrzDoG_CmBoKTcKCGsObV8KDbntHQwzCuMKTPA" type="text" required>
+                    </div>
+                </div>
+                <div class="column small-12">
+                    <div class="upload-text">Upload screenshot of ad (required):</div>
+                    <div id='upload-it'>
+                        <a href="#" id="upload-select-file">Select a file</a>, or drag & drop file here.
+                    </div>
+                    <div id="upload-it-placeholder"></div>
+
+                    <div class="dropzone-previews" style="display: none"></div>
+                    <div class="dz-message" style="display: none"></div>
+
+                    <div id="dropzone-preview-template" style="display: none">
+                        <div class="dz-preview dz-file-preview">
+                            <img data-dz-thumbnail src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt=""/>
+                            <div class="dz-success-mark"><span>✔</span></div>
+                            <div class="dz-error-mark"><span>✘</span></div>
+                            <div class="dz-error-message"><span data-dz-errormessage></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column small-12">
+                    <u>Screenshot instructions:</u>
+
+                </div>
+                <div class="row small-12">
+                    <div class="column large-5 small-6">
+                        <p>
+                            <u>Click URL instructions:</u><br>
+                            Right-click on the ad, choose "Copy Link", then paste here &rarr;<br>
+                            (This may not be possible with some types of ads)
+                        </p>
+                        <a class="more-info" href="https://sourceforge.net/p/forge/documentation/Report%20a%20problem%20with%20Ad%20content/" target="_blank">More information about our ad policies</a>
+                    </div>
+                    <div class="column large-7 small-6">
+                        <p>Ad destination/click URL:
+                        <input name="Xwr7Dp2bCghoTe8KHHMOewqFgwqNRw4AQwqlPwoLDuA" type="url" required>
+                        </p>
+                        <textarea id="gpt-info" name="XwrPDoGvCnxjDocKpwqbDiWHDjMKbw7TCkcOUFcOGwqQqWw"></textarea>
+                        <input class="button" type="submit" id="btn-blockthis-submit" value="Submit Report">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+        <script>
+            bizx.cmp.ifConsent('', ['all'], function () {
+                bizx.cmp.embedScript('//ads.pro-market.net/ads/scripts/site-143572.js');
+            });
+        </script><script>
+            bizx.cmp.ifConsent('', ['all'], function () {
+                try{(function(){ var cb = new Date().getTime(); var s = document.createElement("script"); s.defer = true; s.src = "//tag.crsspxl.com/s1.js?d=2396&cb="+cb; var s0 = document.getElementsByTagName('script')[0]; s0.parentNode.insertBefore(s, s0); })();}catch(e){}
+            });
+        </script>
+
+
+<script type="text/javascript">
+    bizx.cmp.ifConsent({ purposes: ['storage', 'measurement'], vendors: 'google-analytics'}, function () {
+        /* jshint ignore:start */
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        /* jshint ignore:end */
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ window.dataLayer.push(arguments); }
+        window.gtag = window.gtag || gtag;
+        bizx.cmp.embedScript("https://www.googletagmanager.com/gtag/js");
+        gtag('js', new Date());
+        gtag('set', {
+            'page_location': 'https://sourceforge.net/projects/fbc/files/FreeBASIC-1.10.0/FreeBASIC-1.10.0-linux-x86_64.tar.gz/download',
+        });
+    });
+</script>
+    <script>
+        /*global ga, gtag */
+        SF.devicePixelRatio = Math.round(window.getDevicePixelRatio()*10)/10;
+
+
+
+
+            bizx.cmp.ifConsent({ purposes: ['storage', 'measurement'], vendors: 'google-analytics'}, function () {
+                gtag('config', 'G-1H226E4E4L', {
+
+                    send_page_view: false,
+                    'SF_Page_Type': 'error-content',
+                    user_properties: {
+                        'SF_Logged_in': 'Logged Out',
+                    },
+                    'SF_Ads_Disabled': 'No',
+                    'SF_Prebid_Load_Method': 'sync',
+                    'devicePixelRatio': SF.devicePixelRatio,
+                });
+                gtag('event', 'page_view', { send_to: 'G-1H226E4E4L' });
+            });
+
+
+
+
+
+    </script>
+
+
+
+
+
+             <script>
+    $(function() {
+        bizx.cmp.ifConsent({ purposes: 'all' , vendors: 'narrative'}, function() {
+            var current_time = (new Date()).getTime();
+            let imageUrl = "https://io.narrative.io/?companyId=2440&id=first_party%3A9329819e-13c2-4318-bb98-0174e293068d&id=site_name%3Asourceforge.net&id=url%3A%2Fprojects%2Ffbc%2Ffiles%2FFreeBASIC-1.10.0%2FFreeBASIC-1.10.0-linux-x86_64.tar.gz%2Fdownload&id=pagetitle%3APage+not+found%0A++++-+SourceForge.net&id=vertical%3AOpen+Source+Software";
+            imageUrl = imageUrl.replace(encodeURIComponent("$PAGE_TITLE"), document.title);
+
+            imageUrl = URL.parse(imageUrl);
+            let hem = bizx.uids.getHem();
+            if (hem) {
+                imageUrl.searchParams.append('id', 'hem:' + hem);
+            }
+            imageUrl.searchParams.append('rand', current_time);
+
+            var image = new Image();
+            image.src = imageUrl.toString();
+            image.style.display = "none";
+            image.style.height = 0;
+            image.style.width = 0;
+            document.body.appendChild(image);
+        });
+    })
+</script>
+
+
+
+
+<script>
+    $(function() {
+        bizx.cmp.ifConsent({ purposes: 'all', vendors: 'xandr'}, function() {
+            /*jshint ignore:start*/
+            !function(e,i){if(!e.pixie){var n=e.pixie=function(e,i,a){n.actionQueue.push({action:e,actionValue:i,params:a})};n.actionQueue=[];var a=i.createElement("script");a.async=!0,a.src="//acdn.adnxs.com/dmp/up/pixie.js";var t=i.getElementsByTagName("head")[0];t.insertBefore(a,t.firstChild)}}(window,document);
+            pixie('init', '48d4c5e5-03de-40f8-81ab-b370a8860afa');
+            pixie('event', 'PageView');
+            /*jshint ignore:end*/
+
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+        function gam(id){
+            bizx.cmp.ifConsent({ purposes: 'all', vendors: 'google-ads'}, function () {
+                bizx.cmp.embedScript(`https://pagead2.googlesyndication.com/pagead/js/pcd.js?${id}`,
+                    true,  // async
+                    'head', // location
+                    null, // callback
+                    false, // defer
+                    {id: `google-pcd-tag-${id}`, 'data-audience-pixel': 'dc_iu=/41014381/DFPAudiencePixel;dc_seg=' + id});
+            });
+        }
+
+
+            gam("8901705213");</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>

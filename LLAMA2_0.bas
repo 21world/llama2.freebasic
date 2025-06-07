@@ -64,7 +64,7 @@ DIM SHARED AS SINGLE PTR RunState_HB2_f4B '(LAYER,DIM,DIM) 5
 DIM SHARED AS SINGLE PTR RunState_Q_f4B '(LAYER,DIM,DIM) 6
 DIM SHARED AS SINGLE PTR RunState_K_f4B '(LAYER,DIM,DIM) 7
 DIM SHARED AS SINGLE PTR RunState_V_f4B '(LAYER,DIM,DIM) 8
-DIM SHARED AS SINGLE PTR RunState_ATT_f4B '(LAYER,DIM,DIM) 9 
+DIM SHARED AS SINGLE PTR RunState_ATT_f4B '(LAYER,DIM,DIM) 9
 DIM SHARED AS SINGLE PTR RunState_LOGITS_f4B '(LAYER,DIM,DIM) 10
 'KV CACHE
 DIM SHARED AS SINGLE PTR RunState_KEY_CACHE_f4B '(LAYER,SEQ_LEN,DIM) 11
@@ -121,15 +121,15 @@ SUB SUB_CHECKPOINT_INIT_WEIGHTS(F_f4B AS SINGLE PTR,SHARED_WEIGHTS_4B AS INTEGER
     TransformerWeights_WQ_f4B=PTR_f4B
  PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_DIM_4B*CONFIG_DIM_4B
     TransformerWeights_WK_f4B=PTR_f4B
- PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_DIM_4B*CONFIG_DIM_4B   
+ PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_DIM_4B*CONFIG_DIM_4B
     TransformerWeights_WV_f4B=PTR_f4B
- PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_DIM_4B*CONFIG_DIM_4B   
+ PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_DIM_4B*CONFIG_DIM_4B
     TransformerWeights_WO_f4B=PTR_f4B
- PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_DIM_4B*CONFIG_DIM_4B   
+ PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_DIM_4B*CONFIG_DIM_4B
     TransformerWeights_RMS_FFN_WEIGHT_f4B=PTR_f4B
- PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_DIM_4B   
+ PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_DIM_4B
     TransformerWeights_W1_f4B=PTR_f4B
- PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_DIM_4B*CONFIG_HIDDEN_DIM_4B   
+ PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_DIM_4B*CONFIG_HIDDEN_DIM_4B
     TransformerWeights_W2_f4B=PTR_f4B
  PTR_f4B+=CONFIG_N_LAYERS_4B*CONFIG_HIDDEN_DIM_4B*CONFIG_DIM_4B
     TransformerWeights_W3_f4B=PTR_f4B
@@ -226,7 +226,7 @@ SUB SUB_TRANSFORMER(TOKEN_4B AS INTEGER,POS_4B AS INTEGER)
 SUB_MATMUL(RunState_Q_f4B,RunState_XB_f4B,TransformerWeights_WQ_f4B+L*DIM_4B*DIM_4B,DIM_4B,DIM_4B)':191:
 SUB_MATMUL(RunState_K_f4B,RunState_XB_f4B,TransformerWeights_WK_f4B+L*DIM_4B*DIM_4B,DIM_4B,DIM_4B)':191:
 SUB_MATMUL(RunState_V_f4B,RunState_XB_f4B,TransformerWeights_WV_f4B+L*DIM_4B*DIM_4B,DIM_4B,DIM_4B)':191:
-DIM AS UINTEGER H,I 
+DIM AS UINTEGER H,I
 'APPLY ROPE ROTATION TO THE Q AND K VECTORS FOR EACH HEAD
 FOR H=0 TO CONFIG_N_HEADS_4B-1
 'GET THE Q AND K VECTORS FOR THIS HEAD
@@ -287,7 +287,7 @@ MEMSET(XB_f4B,0,HEAD_SIZE_4B*SIZEOF(SINGLE))
   'GET THE ATTENTION WEIGHT FOR THIS TIMESTEP
   DIM AS SINGLE A_f4B=ATT_f4B[T]:'?":288: A_f4B=";A_f4B
   'ACCUMULATE THE WEIGHTED VALUE INTO XB
-   FOR I=0 TO HEAD_SIZE_4B-1 
+   FOR I=0 TO HEAD_SIZE_4B-1
     XB_f4B[I]+=A_f4B*V_f4B[I]
    NEXT I
  NEXT T:'?":293: RunState_XB_f4B[0]=";RunState_XB_f4B[0]
@@ -314,7 +314,7 @@ NEXT I
 
 'ELEMENTWISE MULTIPLY WITH W3(X)
 FOR I=0 TO HIDDEN_DIM_4B-1
- RunState_HB_f4B[I]=RunState_HB_f4B[I]*RunState_HB2_f4B[I] 
+ RunState_HB_f4B[I]=RunState_HB_f4B[I]*RunState_HB2_f4B[I]
 NEXT I
 
 'FINAL MATMUT TO GET THE OUTPUT OF THE FFN
@@ -362,12 +362,87 @@ END FUNCTION
 FUNCTION FUNC_TIME_IN_MS()AS UINTEGER
 DIM AS DOUBLE TIME_4B=TIMER()
 'GET THE CURRENT TIME WITH NANOSECONDS PRECISION
-'IF 
+'IF
 RETURN TIME_4B
 'ELSE
 
 'RETURN -1 'RETURN -1 TO INDICATE AN ERROR
 'ENDIF
+END FUNCTION
+
+'---------------------------
+'TOKENIZER FUNCTION
+FUNCTION FUNC_TOKENIZE_STRING (userText AS STRING, BYREF numTokensOutput AS INTEGER) AS INTEGER()
+    'Worst case: each char is a token. Add some buffer.
+    DIM tokensBuffer() AS INTEGER
+    REDIM tokensBuffer(0 TO LEN(userText)) ' Max possible tokens = len of string
+    DIM currentNumTokens AS INTEGER = 0
+    DIM textPos AS INTEGER = 1 ' FreeBasic strings are 1-indexed
+    DIM textLen AS INTEGER = LEN(userText)
+    DIM i AS INTEGER ' Loop variable for vocab
+    DIM char_idx AS INTEGER ' Loop variable for characters in token
+
+    WHILE textPos <= textLen
+        DIM bestMatchLen AS INTEGER = 0
+        DIM bestMatchTokenId AS INTEGER = -1 ' -1 for no match
+
+        DIM tokenCandidatePtr AS ZSTRING PTR
+        DIM tokenCandidateValue AS STRING
+        DIM currentSubText AS STRING
+
+        currentSubText = MID(userText, textPos) ' Substring from current position
+
+        FOR i = 0 TO CONFIG_VOCAB_SIZE_4B -1 ' Iterate through vocab (vocabSize is exclusive upper bound)
+            tokenCandidatePtr = VOCAB_STR(i)
+            IF tokenCandidatePtr = NULL THEN CONTINUE FOR
+
+            tokenCandidateValue = *tokenCandidatePtr ' Dereference pointer to get the string
+            IF tokenCandidateValue = "" THEN CONTINUE FOR ' Skip empty strings in vocab
+
+            ' Check if the token candidate matches the beginning of the current substring
+            IF LEN(currentSubText) >= LEN(tokenCandidateValue) THEN
+                IF LEFT(currentSubText, LEN(tokenCandidateValue)) = tokenCandidateValue THEN
+                    IF LEN(tokenCandidateValue) > bestMatchLen THEN
+                        bestMatchLen = LEN(tokenCandidateValue)
+                        bestMatchTokenId = i
+                    END IF
+                END IF
+            END IF
+        NEXT i
+
+        IF bestMatchTokenId <> -1 THEN
+            IF currentNumTokens > UBOUND(tokensBuffer) THEN ' Ensure buffer is large enough
+                 REDIM PRESERVE tokensBuffer(0 TO currentNumTokens + 10) ' Grow buffer if needed
+            END IF
+            tokensBuffer(currentNumTokens) = bestMatchTokenId
+            currentNumTokens += 1
+            textPos += bestMatchLen
+        ELSE
+            ' No match found for the current char.
+            ' Option 1: Skip the character
+            textPos += 1
+            ' Option 2: Add an <UNK> token if one exists (e.g., if VOCAB_STR(0) is <UNK>)
+            ' IF VOCAB_STR(0) <> NULL THEN ' Assuming 0 is <UNK>
+            '    tokensBuffer(currentNumTokens) = 0
+            '    currentNumTokens += 1
+            ' END IF
+            ' textPos += 1
+        END IF
+    WEND
+
+    numTokensOutput = currentNumTokens
+    IF currentNumTokens = 0 THEN
+        DIM emptyArr(-1 TO 0) AS INTEGER ' FB way to return an empty initialized dynamic array
+        REDIM emptyArr(0 TO -1) ' Correct way for empty array
+        RETURN emptyArr
+    ELSE
+        DIM resultTokens() AS INTEGER
+        REDIM resultTokens(0 TO currentNumTokens - 1)
+        FOR i = 0 TO currentNumTokens - 1
+            resultTokens(i) = tokensBuffer(i)
+        NEXT i
+        RETURN resultTokens
+    END IF
 END FUNCTION
 
 'MAIN
@@ -404,7 +479,7 @@ DIM FILE_SIZE_4B AS LONG
 DIM AS FILE PTR FILE_PTR
 FILE_PTR=FOPEN(CHECKPOINT_STR,"rb")
 
-IF FILE_PTR=0 THEN COLOR 4:?"FILE '";CHECKPOINT_STR;"' OPENNING ERROR" ELSE COLOR 2:?":407: FILE '";CHECKPOINT_STR;"' OPENED " ENDIF 
+IF FILE_PTR=0 THEN COLOR 4:?"FILE '";CHECKPOINT_STR;"' OPENNING ERROR" ELSE COLOR 2:?":407: FILE '";CHECKPOINT_STR;"' OPENED " ENDIF
 COLOR 7
 
 'READ THE CONFIG HEADER
@@ -414,7 +489,7 @@ DIM AS INTEGER SHARED_WEIGHTS_4B:IF CONFIG_VOCAB_SIZE_4B>0 THEN SHARED_WEIGHTS_4
 CONFIG_VOCAB_SIZE_4B=ABS(CONFIG_VOCAB_SIZE_4B)
 'FIGURE OUT THE FILE SIZE
 FSEEK(FILE_PTR,0,SEEK_END)'MOVE FILE POINTER TO THE END OF FILE
-FILE_SIZE_4B=FTELL(FILE_PTR):?":417: FILE_SIZE_4B=";FILE_SIZE_4B'GET FILE SIZE IN BYTES 
+FILE_SIZE_4B=FTELL(FILE_PTR):?":417: FILE_SIZE_4B=";FILE_SIZE_4B'GET FILE SIZE IN BYTES
 FCLOSE(FILE_PTR)
 'MEMORY MAP THE TRANSFORMER WEIGHTS INTO THE DATA POINTER
 FD_4B=FREEFILE:OPEN CHECKPOINT_STR FOR BINARY AS #FD_4B
@@ -428,68 +503,179 @@ SUB_CHECKPOINT_INIT_WEIGHTS(WEIGHTS_PTR,SHARED_WEIGHTS_4B)':115:
 IF STEPS_4B<=0 OR STEPS_4B>CONFIG_SEQ_LEN_4B THEN STEPS_4B=CONFIG_SEQ_LEN_4B
 
 'READ IN THE TOKENIZER.BIN FILE
-DIM AS ZSTRING PTR VOCAB_STR(0 TO CONFIG_VOCAB_SIZE_4B)
+DIM SHARED AS ZSTRING PTR VOCAB_STR(0 TO CONFIG_VOCAB_SIZE_4B) ' Made SHARED for FUNC_TOKENIZE_STRING
 DIM AS ZSTRING PTR TEMP_VOCAB_STR
 FILE_PTR=FOPEN("TOKENIZER.BIN","rb")
-IF FILE_PTR=0 THEN COLOR 4:?"UNABLE TO OPEN THE TOKENIZER FILE 'TOKENIZER.BIN'! RUN""PYTHON 'TOKENIZER.PY' TO CONVERT 'TOKENIZER.MODEL' -> 'TOKENIZER.BIN'" ELSE COLOR 2:?":434: FILE 'TOKENIZER.BIN' OPENED " ENDIF:COLOR 7 
+IF FILE_PTR=0 THEN COLOR 4:?"UNABLE TO OPEN THE TOKENIZER FILE 'TOKENIZER.BIN'! RUN""PYTHON 'TOKENIZER.PY' TO CONVERT 'TOKENIZER.MODEL' -> 'TOKENIZER.BIN'" ELSE COLOR 2:?":434: FILE 'TOKENIZER.BIN' OPENED " ENDIF:COLOR 7
 
-
-
-?":438: CONFIG_VOCAB_SIZE_4B=";CONFIG_VOCAB_SIZE_4B 
-DIM AS INTEGER LEN_4B,I
-FOR I=0 TO CONFIG_VOCAB_SIZE_4B
+?":438: CONFIG_VOCAB_SIZE_4B=";CONFIG_VOCAB_SIZE_4B
+DIM AS INTEGER LEN_4B,idx_vocab_load ' Renamed I to avoid scope collision
+FOR idx_vocab_load=0 TO CONFIG_VOCAB_SIZE_4B
  FREAD(@LEN_4B,4,1,FILE_PTR)
  TEMP_VOCAB_STR=ALLOCATE(LEN_4B)
- VOCAB_STR(I)=ALLOCATE(LEN_4B+4) 
- FREAD(TEMP_VOCAB_STR,LEN_4B,1,FILE_PTR):*VOCAB_STR(I)=LEFT(*TEMP_VOCAB_STR,LEN_4B)+"\0"  
-NEXT I:?":445:"
+ VOCAB_STR(idx_vocab_load)=ALLOCATE(LEN_4B+4)
+ FREAD(TEMP_VOCAB_STR,LEN_4B,1,FILE_PTR):*VOCAB_STR(idx_vocab_load)=LEFT(*TEMP_VOCAB_STR,LEN_4B)+"\0"
+NEXT idx_vocab_load:?":445:"
 FCLOSE(FILE_PTR)
 
 
 ' CREATE AND INIT THE APPLICATION RUN STATE
-
 SUB_MALLOC_RUN_STATE()
 
-'THE CURRENT POSITION WE ARE IN
-DIM AS LONG START_4B=FUNC_TIME_IN_MS()
+'--- Main Interactive Loop ---
+DIM AS LONG START_4B 'Timer variable
+DIM AS LONG END_4B   'Timer variable
 DIM AS INTEGER NEXT_4B
-DIM AS INTEGER TOKEN_4B=1
-DIM AS INTEGER POS_4B=0
-?"<S>" 'EXPLICIT PRINT THE INITIAL BIS TOKEN (=1),STYLISTICALLY SYMMETRIC
-WHILE POS_4B<STEPS_4B
-'?":460:";" POS_4B=";POS_4B;" STEPS=";STEPS_4B
-'TEMPERATURE_f4B=0'FORWARD THE TRANSFORMER TO GET LOGITS FOR THE NEXT TOKEN
-SUB_TRANSFORMER(TOKEN_4B,POS_4B)' :203:
-'
-'SAMPLE THE NEXT TOKEN
-IF TEMPERATURE_f4B=0.0 THEN 
-'?":466: RunState_LOGITS_f4B[0]=";RunState_LOGITS_f4B[0]'GREEDY ARGMAX SAMPLING
- NEXT_4B=FUNC_ARGMAX(RunState_LOGITS_f4B,CONFIG_VOCAB_SIZE_4B):'?":467: RunState_LOGITS_f4B[0]=";RunState_LOGITS_f4B[0]':347:
-ELSE
-'APPLY THE TEMPERATURE TO THE LOGITS
- DIM AS INTEGER Q:FOR Q=0 TO CONFIG_VOCAB_SIZE_4B-1:RunState_LOGITS_f4B[Q]/=TEMPERATURE_f4B: NEXT Q
- 'APPLY SOFTMAX TO THE LOGITS TO GET THE PROBABILITIES FOR NEXT TOKEN
- SUB_SOFTMAX(RunState_LOGITS_f4B,CONFIG_VOCAB_SIZE_4B)':171:
- 'WE NOW WANT TO SAMPLE FROM THIS DISTRIBUTION TO GET THE NEXT TOKEN
- NEXT_4B=FUNC_SAMPLE(RunState_LOGITS_f4B,CONFIG_VOCAB_SIZE_4B)':334:
-ENDIF
- COLOR &HC:? LEFT(*VOCAB_STR(NEXT_4B),LEN(*VOCAB_STR(NEXT_4B))-2);:COLOR 7:'?"  NEXT_4B=";NEXT_4B '4=RED 7=WHITE 
-'COLOR 3:?":477:":COLOR 7
 
-'ADVANCE FORWARD
-TOKEN_4B=NEXT_4B
-POS_4B+=1
-WEND
+' Conversation context variables
+DIM AS INTEGER POS_4B = 0       ' Current position in the sequence, persistent across turns
+DIM AS INTEGER TOKEN_4B = 1     ' Current token, persistent. Start with BOS token (1)
 
-'REPORT ACHIEVED TOK/S
-DIM AS LONG END_4B=FUNC_TIME_IN_MS()
+DIM AS STRING userInput$
+DIM AS INTEGER i_loop_var      ' Loop variable for various uses
+DIM AS INTEGER q_loop_var      ' Renamed from Q to avoid conflict with RunState_Q_f4B
 
-?:?"ACHIEVED TOK/S:";(STEPS_4B/( END_4B-START_4B )   )
-'MEMORY AND FAILE HANDLES CLEANUP
-'?":489: STEPS_4B=";STEPS_4B
-'?":490: START_4B=";START_4B'in :454:line start time was readed
-'?":491: END_4B=";END_4B 'in :485:line end time was readed
+DIM userTokens() AS INTEGER
+DIM numUserTokens AS INTEGER
+DIM prompt_processed AS INTEGER = 0 ' Flag to track if current turn's prompt is outputted
 
+DO
+    IF POS_4B = 0 AND prompt_processed = 0 THEN
+        PRINT "Llama: ";
+        IF VOCAB_STR(1) <> NULL THEN
+            DIM AS INTEGER nullPos_bos = INSTR(*VOCAB_STR(1), CHR(0))
+            IF nullPos_bos > 0 THEN PRINT LEFT(*VOCAB_STR(1), nullPos_bos - 1); ELSE PRINT *VOCAB_STR(1); END IF
+        END IF
+        prompt_processed = 1
+    END IF
+
+    INPUT "You: ", userInput$
+
+    IF TRIM(LCASE(userInput$)) = "clear" THEN
+        POS_4B = 0
+        TOKEN_4B = 1 ' Reset to BOS token
+        prompt_processed = 0
+        PRINT
+        PRINT "Conversation history cleared. Starting new conversation."
+        PRINT
+        IF UBOUND(userTokens) >= 0 THEN ERASE userTokens ' Clear any previous user tokens
+        CONTINUE DO
+    END IF
+
+    IF LCASE(userInput$) = "quit" THEN
+        IF UBOUND(userTokens) >= 0 THEN ERASE userTokens
+        EXIT DO
+    END IF
+
+    userTokens = FUNC_TOKENIZE_STRING(userInput$, numUserTokens)
+
+    IF POS_4B + numUserTokens + 1 >= CONFIG_SEQ_LEN_4B THEN
+        PRINT "Warning: Conversation history plus new input is too long ("; POS_4B + numUserTokens; " / "; CONFIG_SEQ_LEN_4B; "). Type 'clear' to reset or provide shorter input."
+        ERASE userTokens
+        CONTINUE DO
+    END IF
+
+    IF POS_4B = 0 THEN ' This implies a new conversation has just started (or was cleared)
+        TOKEN_4B = 1
+        IF prompt_processed = 0 THEN ' Check if Llama: <S> was already printed
+            PRINT "Llama: ";
+            IF VOCAB_STR(1) <> NULL THEN
+                 DIM AS INTEGER nullPos_bos_2 = INSTR(*VOCAB_STR(1), CHR(0))
+                 IF nullPos_bos_2 > 0 THEN PRINT LEFT(*VOCAB_STR(1), nullPos_bos_2 - 1); ELSE PRINT *VOCAB_STR(1); END IF
+            END IF
+            prompt_processed = 1
+        END IF
+        SUB_TRANSFORMER(TOKEN_4B, POS_4B) ' Process BOS
+        POS_4B += 1
+    END IF
+
+    FOR i_loop_var = 0 TO numUserTokens - 1
+        IF POS_4B < CONFIG_SEQ_LEN_4B THEN
+            TOKEN_4B = userTokens(i_loop_var)
+            SUB_TRANSFORMER(TOKEN_4B, POS_4B)
+            POS_4B += 1
+        ELSE
+            PRINT "Warning: User input truncated during processing due to sequence length limit."
+            EXIT FOR
+        END IF
+    NEXT i_loop_var
+    IF UBOUND(userTokens) >= 0 THEN ERASE userTokens
+
+    IF numUserTokens > 0 OR userInput$ = "" THEN
+        IF prompt_processed = 0 OR numUserTokens > 0 THEN
+             PRINT "Llama: ";
+             prompt_processed = 1
+        END IF
+
+        START_4B = FUNC_TIME_IN_MS()
+        DIM generated_steps AS INTEGER = 0
+
+        WHILE POS_4B < CONFIG_SEQ_LEN_4B AND generated_steps < STEPS_4B
+            SUB_TRANSFORMER(TOKEN_4B, POS_4B)
+
+            IF POS_4B >= CONFIG_SEQ_LEN_4B -1 THEN
+                 PRINT CHR(10);"(Reached sequence length limit during generation)"
+                 EXIT WHILE
+            END IF
+
+            IF TEMPERATURE_f4B = 0.0 THEN
+                NEXT_4B = FUNC_ARGMAX(RunState_LOGITS_f4B, CONFIG_VOCAB_SIZE_4B)
+            ELSE
+                FOR q_loop_var = 0 TO CONFIG_VOCAB_SIZE_4B - 1
+                    RunState_LOGITS_f4B[q_loop_var] /= TEMPERATURE_f4B
+                NEXT q_loop_var
+                SUB_SOFTMAX(RunState_LOGITS_f4B, CONFIG_VOCAB_SIZE_4B)
+                NEXT_4B = FUNC_SAMPLE(RunState_LOGITS_f4B, CONFIG_VOCAB_SIZE_4B)
+            ENDIF
+
+            IF NEXT_4B = 2 THEN
+                PRINT CHR(10);"(EOS)"
+                EXIT WHILE
+            END IF
+
+            COLOR &HC
+            IF NEXT_4B >= 0 AND NEXT_4B <= CONFIG_VOCAB_SIZE_4B THEN
+              IF VOCAB_STR(NEXT_4B) <> NULL THEN
+                DIM AS INTEGER nullPos = INSTR(*VOCAB_STR(NEXT_4B), CHR(0))
+                IF nullPos > 0 THEN
+                    PRINT LEFT(*VOCAB_STR(NEXT_4B), nullPos - 1);
+                ELSE
+                    PRINT *VOCAB_STR(NEXT_4B);
+                END IF
+              END IF
+            END IF
+            COLOR 7
+
+            TOKEN_4B = NEXT_4B
+            POS_4B += 1
+            generated_steps += 1
+        WEND
+
+        END_4B = FUNC_TIME_IN_MS()
+        IF generated_steps > 0 THEN PRINT
+        PRINT "(Generated "; generated_steps; " tokens in "; END_4B - START_4B; " ms, seq_pos: "; POS_4B;" )"
+        PRINT
+
+        IF POS_4B >= CONFIG_SEQ_LEN_4B -1 AND NEXT_4B <> 2 THEN
+             PRINT "Warning: Conversation reached maximum sequence length (";CONFIG_SEQ_LEN_4B;"). Type 'clear' to start over."
+        END IF
+    END IF
+    prompt_processed = 0
+LOOP
+
+'MEMORY AND FILE HANDLES CLEANUP
+SUB_FREE_RUN_STATE()
+CLOSE #FD_4B
+
+' Free vocab strings
+IF VOCAB_STR(0) <> NULL THEN
+    FOR i_loop_var = 0 TO CONFIG_VOCAB_SIZE_4B
+        IF VOCAB_STR(i_loop_var) <> NULL THEN
+            DEALLOCATE(VOCAB_STR(i_loop_var))
+            VOCAB_STR(i_loop_var) = NULL
+        END IF
+    NEXT i_loop_var
+END IF
 
 END
-'END MAIN 
+'END MAIN
